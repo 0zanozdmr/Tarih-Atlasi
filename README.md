@@ -2,47 +2,60 @@
 [Tarih Atlası, kullanıcıların dünya tarihindeki önemli olayları, dönemleri ve kişileri öğrenmesine yardımcı olan bir uygulamadır.]
 
  ## Ekibimiz
-Danışman:
+- **Danışman:**
 [https://github.com/keyvanarasteh](Keyvan Arasteh)
 
-Takım Üyeleri:
+- **Takım Üyeleri:**
 
-X [0zanozdmr](https://github.com/0zanozdmr)
+- Ozan Özdemir[0zanozdmr](https://github.com/0zanozdmr)
 
  ## Özellikler
-[Tarihte bugün ne olduğunu gösterir]
+- [Tarihte bugün ne olduğunu gösterir]
 
-[Anahtar kelime sayesinde tarihte olan olayları araştırmamızı sağlar]
+- [Anahtar kelime sayesinde tarihte olan olayları araştırmamızı sağlar]
 
-[Çeşitli makaleler göstererek kültürlenmemizi sağlar]
+- [Çeşitli makaleler göstererek kültürlenmemizi sağlar]
+
 
  ## Kullanılan Teknolojiler
-Flutter
+- Flutter
 
-Dart
+- Dart
 
  ## Başlangıç
 Gereksinimler
-Flutter SDK (sürüm 3.24.5)
+- Flutter SDK (sürüm 3.24.5)
 
-Dart SDK (sürüm 3.5.4)
+- Dart SDK (sürüm 3.5.4)
 
 Kurulum Adımları
-Projeyi bilgisayarınıza indirin:
+1. Projeyi bilgisayarınıza indirin:
+```bash
 git  clone [https://github.com/0zanozdmr/Tarih-Atlasi0.git]
- Proje klasörüne gidin:
-cd [Tarih_Atlasi]
-Gerekli paketleri yükleyin:
+```
+
+2. Proje klasörüne gidin:
+```bash
+cd [Tarih_Atlası]
+```
+
+3. Gerekli paketleri yükleyin:
+```bash
 flutter  pub  get
-Uygulamayı başlatın:
+```
+
+4. Uygulamayı başlatın:
+```bash
 flutter  run
+```
+
  ## Proje Yapısı
 
 lib/
 
 ├── modeller/ # Veri modelleri
 
-├── ekranlar/ # Uygulama ekranları
+├── ekranlar/ Yükleme ekranı, Ana ekran, Profil ekranı.
 
 ├── widgets/ # Tekrar kullanılabilir arayüz öğeleri
 
@@ -65,12 +78,12 @@ Dalınıza gönderin (git push origin ozellik/YeniOzellik)
 Pull Request oluşturun
 
 Lisans
-[Lisans türü] kapsamında lisanslanmıştır. Daha fazla bilgi için LICENSE dosyasını inceleyebilirsiniz.
+-[Lisans türü] kapsamında lisanslanmıştır. Daha fazla bilgi için LICENSE dosyasını inceleyebilirsiniz.
 
  ## İletişim
-Proje Bağlantısı: [https://github.com/0zanozdmr/Tarih-Atlasi0.git]
+-Proje Bağlantısı: [https://github.com/0zanozdmr/Tarih-Atlasi0.git]
 
-İstinye Üniversitesi: https://www.istinye.edu.tr/
+-İstinye Üniversitesi: https://www.istinye.edu.tr/
 
  ## Teşekkürler
-İstinye Üniversitesi'ne destekleri için teşekkür ederiz
+-İstinye Üniversitesi'ne destekleri için teşekkür ederiz
