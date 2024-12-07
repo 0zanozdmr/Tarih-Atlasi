@@ -64,7 +64,9 @@ lib/
 └── yardımcılar/ # Yardımcı fonksiyonlar
 
  ## Ekran Görüntüleri
-[Uygulama ekran görüntüleri buraya eklenecek]
+![Screenshot_135](https://github.com/user-attachments/assets/f1aabcb7-c426-47c8-ab6d-a60acc556975)
+![Screenshot_136](https://github.com/user-attachments/assets/95bd2ffb-d344-47f1-84b3-79695f1c264e)
+![Screenshot_137](https://github.com/user-attachments/assets/8c055c63-5c52-4d89-ae79-238b6f8b1177)
 
 Projeye Katkı Sağlama
 Projeyi forklayın
@@ -87,3 +89,4 @@ Lisans
 
  ## Teşekkürler
 -İstinye Üniversitesi'ne destekleri için teşekkür ederiz
+
