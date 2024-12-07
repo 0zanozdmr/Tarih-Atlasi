@@ -8,13 +8,16 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255,245,222,179),
+      backgroundColor: const Color.fromARGB(255,245,222,179),
       // AppBar
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color.fromARGB(255,245,222,179),
+        backgroundColor: const Color.fromARGB(255,245,222,179),
+
         title: const Text('Ana Sayfa',
         style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 60,
          color: Color.fromARGB(250, 139, 69, 19),
         ),
        ),
