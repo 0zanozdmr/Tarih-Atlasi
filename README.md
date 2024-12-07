@@ -83,7 +83,7 @@ Lisans
 -[Lisans türü] kapsamında lisanslanmıştır. Daha fazla bilgi için LICENSE dosyasını inceleyebilirsiniz.
 
  ## İletişim
--Proje Bağlantısı: [https://github.com/0zanozdmr/Tarih-Atlasi0.git]
+-Proje Bağlantısı: [https://github.com/0zanozdmr/Tarih-Atlasi]
 
 -İstinye Üniversitesi: https://www.istinye.edu.tr/
 
