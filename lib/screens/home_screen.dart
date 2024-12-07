@@ -11,6 +11,8 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Color.fromARGB(255,245,222,179),
       // AppBar
       appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Color.fromARGB(255,245,222,179),
         title: const Text('Ana Sayfa',
         style: TextStyle(
          color: Color.fromARGB(250, 139, 69, 19),
