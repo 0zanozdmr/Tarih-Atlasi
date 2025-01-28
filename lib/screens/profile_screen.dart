@@ -50,6 +50,11 @@ class ProfileScreen extends StatelessWidget {
                     title: Text("oozan8257@gmail.com"),
                     subtitle: Text("E-posta"),
                   ),
+                  ListTile(
+                    leading: Icon(Icons.email),
+                    title: Text("Hesabı oluşturulduğu tarih"),
+                    subtitle: Text("Tarih"),
+                  ),
                 ],
               ),
             ),
