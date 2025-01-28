@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+
+import '../core/constants.dart';
+import '../core/themes.dart';
+import '../widgets/bottom_menu.dart';
+import '../widgets/suggested_action_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -8,134 +14,143 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255,245,222,179),
-      // AppBar
       appBar: AppBar(
-        elevation: 0,
-        backgroundColor: const Color.fromARGB(255,245,222,179),
-
-        title: const Text('Ana Sayfa',
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 60,
-         color: Color.fromARGB(250, 139, 69, 19),
-        ),
-       ),
-
+        title: Text('Ana Sayfa', style: Theme.of(context).textTheme.headlineMedium),
+        centerTitle: true,
         actions: [
           IconButton(
-            icon: const Icon(CupertinoIcons.bell),
-            onPressed: () {},
+            icon: Icon(CupertinoIcons.moon),
+            onPressed: () {
+              context.read<ThemeProvider>().toggleTheme();
+            },
           ),
         ],
       ),
-
-      // Drawer (Yan Menü)
       drawer: Drawer(
         child: Column(
           children: [
-            // Drawer Header
-            Container(
-              height: 200,
-              color: Colors.white,
-              child: const Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    CupertinoIcons.person_circle,
-                    size: 100,
-                    color: Colors.black,
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    'Kullanıcı Adı',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 18,
-                    ),
-                  ),
-                ],
+            UserAccountsDrawerHeader(
+              currentAccountPicture: CircleAvatar(
+                backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+                child: Icon(
+                  CupertinoIcons.person_circle,
+                  size: 50,
+                  color: Theme.of(context).colorScheme.onPrimaryContainer,
+                ),
+              ),
+              accountName: Text("Hoşgeldiniz"),
+              accountEmail: null,
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primary,
               ),
             ),
-            // Menü öğeleri
             ListTile(
-              leading: const Icon(CupertinoIcons.home),
-              title: const Text('Ana Sayfa'),
-              onTap: () {
-                Navigator.pop(context);
-              },
+              leading: Icon(CupertinoIcons.home),
+              title: Text('Ana Sayfa'),
+              onTap: () => Navigator.pop(context),
             ),
             ListTile(
-              leading: const Icon(CupertinoIcons.profile_circled),
-              title: const Text('Profil'),
-              onTap: () {
-                context.go('/profile');
-              },
+              leading: Icon(CupertinoIcons.search),
+              title: Text('Aratma'),
+              onTap: () => context.push("/search"),
             ),
             ListTile(
-              leading: const Icon(CupertinoIcons.archivebox),
-              title: const Text('Kaydedilenler'),
-              onTap: () {
-                Navigator.pop(context);
-              },
+              leading: Icon(CupertinoIcons.search),
+              title: Text('İndirilenler'),
+              onTap: () => context.push("/download"),
             ),
             ListTile(
-             leading: const Icon(CupertinoIcons.arrow_down_to_line_alt),
-             title: const Text('İndirilenler'),
-             onTap: () {
-              Navigator.pop(context);
-             },
+              leading: Icon(CupertinoIcons.search),
+              title: Text('Kaydedilenler'),
+              onTap: () => context.push("/saved"),
             ),
             ListTile(
-              leading: const Icon(CupertinoIcons.settings),
-              title: const Text('Ayarlar'),
-              onTap: () {
-                Navigator.pop(context);
-              },
+              leading: Icon(CupertinoIcons.person),
+              title: Text('Profil'),
+              onTap: () => context.push("/profile"),
+            ),
+            ListTile(
+              leading: Icon(CupertinoIcons.settings),
+              title: Text('Ayarlar'),
+              onTap: () => context.push("/settings"),
+            ),
+            Spacer(),
+            Divider(),
+            ListTile(
+              leading: Icon(Icons.logout),
+              title: Text('Çıkış Yap'),
+              onTap: () => context.go("/"),
             ),
           ],
         ),
       ),
-
-      // Ana içerik
-      body: Column(
-        children: [
-          Expanded(
-            child: Container(
-              padding: const EdgeInsets.all(16),
-              child: const Text('Ana Sayfa İçeriği',
-                style: TextStyle(
-                  color: Color.fromARGB(250, 139, 69, 19),
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.surfaceVariant,
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
+                ),
+                child: ListView(
+                  padding: EdgeInsets.all(24),
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(bottom: 16.0),
+                      padding: EdgeInsets.all(16.0),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(8.0),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 2,
+                            blurRadius: 5,
+                            offset: Offset(0, 3), // Gölgenin konumu
+                          ),
+                        ],
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Tarihte Bugün Ne Oldu',
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 8.0),
+                          Text(
+                            'Bugün tarihte yaşanan önemli olaylar.',
+                            style: TextStyle(fontSize: 16),
+                          ),
+                        ],
+                      ),
+                    ),
+                    // Diğer SuggestedActionCard'lar
+                    SuggestedActionCard(
+                      icon: Icons.history,
+                      title: "Son Aramalar",
+                      subtitle: "Geçmiş aramalarınızı görüntüleyin",
+                      onTap: () => context.push("/search"),
+                    ),
+                    SizedBox(height: 16),
+                    SuggestedActionCard(
+                      icon: Icons.settings,
+                      title: "Ayarlar",
+                      subtitle: "Uygulama ayarlarını özelleştirin",
+                      onTap: () => context.push("/settings"),
+                    ),
+                  ],
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
-
-      // Alt navigasyon çubuğu
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.home),
-            label: 'Ana Sayfa',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.search),
-            label: 'Aratma',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.person),
-            label: 'Profil',
-          ),
-        ],
-        currentIndex: 0,
-        selectedItemColor: Colors.black ,
-        backgroundColor: Color.fromARGB(255,245,222,179) ,
-        onTap: (index) {
-          // Navigasyon işlemleri buraya gelecek
-        },
-      ),
+      bottomNavigationBar: BottomMenu(),
     );
   }
 }
