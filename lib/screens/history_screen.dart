@@ -99,6 +99,18 @@ class _HistoryScreenState extends State<HistoryScreen> {
                             onPressed: () {},
                           ),
                         ),
+                        Positioned(
+                          top: 8,
+                          left: 8,
+                          child: IconButton(
+                            icon: Icon(Icons.favorite_border),
+                            style: IconButton.styleFrom(
+                              backgroundColor:
+                              Theme.of(context).colorScheme.surface,
+                            ),
+                            onPressed: () {},
+                          ),
+                        ),
                       ],
                     ),
                     Padding(
@@ -111,11 +123,6 @@ class _HistoryScreenState extends State<HistoryScreen> {
                             style: Theme.of(context).textTheme.titleMedium,
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
-                          ),
-                          SizedBox(height: 4),
-                          Text(
-                            '₺${(index + 1) * 100}',
-                            style: Theme.of(context).textTheme.titleLarge,
                           ),
                           SizedBox(height: 8),
                           FilledButton.icon(

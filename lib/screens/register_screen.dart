@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/core/themes.dart';
 import 'package:go_router/go_router.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -42,7 +43,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               TextField(
                 obscureText: true,
                 decoration: InputDecoration(
-                  hintText: "Sifre",
+                  hintText: "Şifre",
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -53,7 +54,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               TextField(
                 obscureText: true,
                 decoration: InputDecoration(
-                  hintText: "Sifre Tekrar",
+                  hintText: "Şifre Tekrar",
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -63,43 +64,45 @@ class _RegisterScreenState extends State<RegisterScreen> {
               SizedBox(height: 24),
               // Kayıt Ol butonu
               Container(
+                width: double.infinity,
                 decoration: BoxDecoration(
-                  border: Border.all(color: Theme.of(context).colorScheme.secondary), // Kenar rengi
+                  color: Theme.of(context).colorScheme.primary, // Temanın birincil rengi
                   borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: Theme.of(context).colorScheme.onPrimary, width: 2), // Kenarlık rengi
                 ),
-                child: FilledButton(
+                child: TextButton(
                   onPressed: () {
                     context.go("/loading");
                   },
-                  style: FilledButton.styleFrom(
-                    minimumSize: Size(double.infinity, 50),
-                    backgroundColor: Theme.of(context).colorScheme.primary, // Arka plan rengi
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
+                  child: Text(
+                    "Kayıt Ol",
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onPrimary, // Temanın "onPrimary" rengi
+                      fontWeight: FontWeight.bold,
                     ),
-                  ),
-                  child: const Text(
-                    "Kayit Ol",
-                    style: TextStyle(color: Colors.white), // Metin rengi
                   ),
                 ),
               ),
               SizedBox(height: 12),
               // Giriş Yap butonu
-              OutlinedButton(
-                onPressed: () {
-                  context.push("/login");
-                },
-                style: OutlinedButton.styleFrom(
-                  minimumSize: Size(double.infinity, 50),
-                  side: BorderSide(color: Theme.of(context).colorScheme.secondary), // Kenar rengi
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
+              Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.transparent, // Şeffaf arka plan
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: Theme.of(context).colorScheme.secondary, width: 2), // Kenarlık rengi
                 ),
-                child: const Text(
-                  "Giris Yap",
-                  style: TextStyle(color: Colors.black), // Metin rengi
+                child: TextButton(
+                  onPressed: () {
+                    context.push("/login");
+                  },
+                  child: Text(
+                    "Giriş Yap",
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onSecondary, // Temanın "onSecondary" rengi
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ),
             ],

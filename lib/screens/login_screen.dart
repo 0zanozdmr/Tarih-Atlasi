@@ -1,7 +1,5 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter_app/core/themes.dart';
 import 'package:go_router/go_router.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -12,51 +10,40 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  TextEditingController epostaYonetici = TextEditingController();
-  TextEditingController sifreYonetici = TextEditingController();
-
-  girisYap() {
-    if (epostaYonetici.text.isEmpty || sifreYonetici.text.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text("Bilgileriniz Giriniz"),
-          // action: SnackBarAction(label: "Kapat", onPressed: () {}),
-          // margin: EdgeInsets.all(20),
-          behavior: SnackBarBehavior.floating,
-          backgroundColor: Colors.red,
-          showCloseIcon: true,
-        ),
-      );
-    } else {
-      if (sifreYonetici.text.length < 8) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text("Sifre Minimum 8 haneli olabilir."),
-            // action: SnackBarAction(label: "Kapat", onPressed: () {}),
-            // margin: EdgeInsets.all(20),
-            behavior: SnackBarBehavior.floating,
-            backgroundColor: Colors.red,
-            showCloseIcon: true,
-          ),
-        );
-      } else {
-        context.go("/loading");
-      }
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Center(
+      body: Center( // Center ile tüm içeriği ortalayacağız
         child: SizedBox(
           width: 300,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start, // Logoyu yukarıda konumlandır
+            crossAxisAlignment: CrossAxisAlignment.center, // Tüm öğeleri ortala
             children: [
+              // Logo ekleme
+              SizedBox(
+                width: 250,
+                height: 250,
+                child: Image.asset(
+                  'assets/images/logo.png',
+                  fit: BoxFit.contain,
+                ),
+              ),
+              SizedBox(height: 16), // Logo ile metin alanları arasında boşluk
+              // Ad Soyad TextField
               TextField(
-                controller: epostaYonetici,
+                decoration: InputDecoration(
+                  hintText: "Ad Soyad",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  prefixIcon: Icon(Icons.person),
+                ),
+              ),
+              SizedBox(height: 16),
+              // E-Posta TextField
+              TextField(
                 decoration: InputDecoration(
                   hintText: "E-Posta",
                   border: OutlineInputBorder(
@@ -66,42 +53,61 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               SizedBox(height: 16),
-              TextFormField(
+              // Şifre TextField
+              TextField(
                 obscureText: true,
-                controller: sifreYonetici,
                 decoration: InputDecoration(
-                  hintText: "Sifre",
+                  hintText: "Şifre",
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
                   prefixIcon: Icon(Icons.lock),
                 ),
               ),
-              SizedBox(height: 24),
-              ElevatedButton(
-                onPressed: girisYap,
-                style: ElevatedButton.styleFrom(
-                  minimumSize: Size(double.infinity, 50),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+              SizedBox(height: 16),
+              // Kayıt Ol butonu
+              Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.transparent, // Temanın birincil rengi
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: Theme.of(context).colorScheme.onPrimary, width: 2), // Kenarlık rengi
+                ),
+                child: TextButton(
+                  onPressed: () {
+                    context.go("/loading");
+                  },
+                  child: Text(
+                    "Kayıt Ol",
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onPrimary, // Temanın "onPrimary" rengi
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-                child: const Text("Giris Yap", style: TextStyle(fontSize: 16)),
               ),
               SizedBox(height: 12),
-              ElevatedButton(
-                onPressed: () {
-                  context.pushReplacement("/register");
-                },
-                style: ElevatedButton.styleFrom(
-                  minimumSize: Size(double.infinity, 50),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+              // Giriş Yap butonu
+              Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.transparent, // Şeffaf arka plan
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: Theme.of(context).colorScheme.onPrimary, width: 2), // Kenarlık rengi
+                ),
+                child: TextButton(
+                  onPressed: () {
+                    context.push("/login");
+                  },
+                  child: Text(
+                    "Giriş Yap",
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onPrimary, // Temanın "onSecondary" rengi
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-                child: const Text("Kayit Ol", style: TextStyle(fontSize: 16)),
               ),
-
             ],
           ),
         ),

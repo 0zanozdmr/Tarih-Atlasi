@@ -1,72 +1,59 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class DownloadScreen extends StatefulWidget {
+import '../core/themes.dart';
+
+class DownloadScreen extends StatelessWidget {
   const DownloadScreen({super.key});
 
   @override
-  State<DownloadScreen> createState() => _HistoryScreenState();
-}
-
-class _HistoryScreenState extends State<DownloadScreen> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-        title: Text('İndirilen'),
-     actions: [
-    IconButton(
-    icon: Icon(Icons.filter_list),
-    onPressed: () => _showFilterDialog(context),
-    ),
-    ],
-        )
-        Expanded(
-        child: GridView.builder(
-        padding: EdgeInsets.all(8),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        childAspectRatio: 0.75,
-        mainAxisSpacing: 8,
-        crossAxisSpacing: 8,
-    ),
-    itemCount: 10,
-    itemBuilder: (context, index) => Card(
-    clipBehavior: Clip.antiAlias,
-    child: Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-    Stack(
-    children: [
-    AspectRatio(
-    aspectRatio: 1,
-    child: Container(
-    color: Theme.of(context)
-        .colorScheme
-        .surfaceContainerHighest,
-    child: Image.asset(
-    "assets/images/dunya.jpg",
-    fit: BoxFit.cover,
-    ),
-    ),
-    ),
-    Positioned(
-    top: 8,
-    right: 8,
-    child: IconButton(
-    icon: Icon(Icons.favorite_border),
-    style: IconButton.styleFrom(
-    backgroundColor:
-    Theme.of(context).colorScheme.surface,
-    ),
-    onPressed: () {},
-    ),
-    ),
-    ],
-    ),
-    Padding(
-    padding: EdgeInsets.all(8),
-
-    )
+      appBar: AppBar(
+        title: Text('İndirilenler', style: Theme.of(context).textTheme.headlineMedium),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: Icon(CupertinoIcons.moon),
+            onPressed: () {
+              context.read<ThemeProvider>().toggleTheme();
+            },
+          ),
+        ],
+      ),
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: 10, // İndirilen öğe sayısı
+                itemBuilder: (context, index) {
+                  return Card(
+                    margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                    child: ListTile(
+                      leading: Icon(Icons.file_download), // İndirilen dosya simgesi
+                      title: Text('İndirilen ${index + 1}'), // İndirilen öğe adı
+                      subtitle: Text('Dosya boyutu: ${index * 10 + 5} MB'), // Dosya boyutu
+                      trailing: IconButton(
+                        icon: Icon(Icons.delete), // Silme simgesi
+                        onPressed: () {
+                          // Silme işlemi
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('İndirilen ${index + 1} silindi.'),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
- }
 }

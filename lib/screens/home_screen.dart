@@ -55,12 +55,12 @@ class HomeScreen extends StatelessWidget {
               onTap: () => context.push("/search"),
             ),
             ListTile(
-              leading: Icon(CupertinoIcons.search),
+              leading: Icon(CupertinoIcons.arrow_down_to_line_alt),
               title: Text('İndirilenler'),
               onTap: () => context.push("/download"),
             ),
             ListTile(
-              leading: Icon(CupertinoIcons.search),
+              leading: Icon(CupertinoIcons.bookmark),
               title: Text('Kaydedilenler'),
               onTap: () => context.push("/saved"),
             ),
@@ -129,6 +129,7 @@ class HomeScreen extends StatelessWidget {
                         ],
                       ),
                     ),
+
                     // Diğer SuggestedActionCard'lar
                     SuggestedActionCard(
                       icon: Icons.history,

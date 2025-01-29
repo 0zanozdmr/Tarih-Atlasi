@@ -15,7 +15,8 @@ class ThemeProvider with ChangeNotifier {
 }
 
 const colors = {
-  "primary": Color.fromARGB(250, 200, 170, 170),
+  "yazi": Color.fromARGB(250, 0, 0, 0),
+  "primary": Color.fromARGB(250, 255, 255, 255),
   "onPrimary": Color.fromARGB(250, 139, 69, 19),
   "secondary": Color.fromARGB(255, 130, 94, 0),
   "onSecondary": Color.fromARGB(250, 139, 69, 19),
@@ -25,6 +26,9 @@ const colors = {
   "error": Colors.red,
   "onError": Colors.white,
 };
+extension CustomColors on ColorScheme {
+  Color get yazi => colors["yazi"]!;
+}
 
 const darkColors = {
   "primary": Color.fromARGB(255, 18, 18, 18),
