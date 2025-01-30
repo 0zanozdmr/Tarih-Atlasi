@@ -38,10 +38,10 @@ class HomeScreen extends StatelessWidget {
                   color: Theme.of(context).colorScheme.onPrimaryContainer,
                 ),
               ),
-              accountName: Text("Hoşgeldiniz"),
+              accountName: Text("Kullanıcı adı"),
               accountEmail: null,
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primary,
+                color: Theme.of(context).colorScheme.surface,
               ),
             ),
             ListTile(
@@ -85,73 +85,84 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.surfaceVariant,
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
-                ),
-                child: ListView(
-                  padding: EdgeInsets.all(24),
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(bottom: 16.0),
-                      padding: EdgeInsets.all(16.0),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8.0),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 2,
-                            blurRadius: 5,
-                            offset: Offset(0, 3), // Gölgenin konumu
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Tarihte Bugün Ne Oldu',
-                            style: TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 8.0),
-                          Text(
-                            'Bugün tarihte yaşanan önemli olaylar.',
-                            style: TextStyle(fontSize: 16),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    // Diğer SuggestedActionCard'lar
-                    SuggestedActionCard(
-                      icon: Icons.history,
-                      title: "Son Aramalar",
-                      subtitle: "Geçmiş aramalarınızı görüntüleyin",
-                      onTap: () => context.push("/search"),
-                    ),
-                    SizedBox(height: 16),
-                    SuggestedActionCard(
-                      icon: Icons.settings,
-                      title: "Ayarlar",
-                      subtitle: "Uygulama ayarlarını özelleştirin",
-                      onTap: () => context.push("/settings"),
-                    ),
-                  ],
-                ),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.surfaceVariant,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
+          ),
+          child: ListView(
+            padding: EdgeInsets.all(24),
+            children: [
+              // Bilgi Kartı: Tarihte Bugün Ne Oldu
+              _buildInfoCard(
+                context,
+                title: 'Tarihte Bugün Ne Oldu',
+                subtitle: 'Bugün tarihte yaşanan önemli olaylar.',
               ),
-            ),
-          ],
+
+              // Bilgi Kartı: En Çok Okunan Makale
+              _buildInfoCard(
+                context,
+                title: 'Bugün en çok okunan makale bu oldu',
+                subtitle: 'Makale içeriği.',
+              ),
+
+              // Diğer SuggestedActionCard'lar
+              SuggestedActionCard(
+                icon: Icons.history,
+                title: "Son Aramalar",
+                subtitle: "Geçmiş aramalarınızı görüntüleyin",
+                onTap: () => context.push("/search"),
+              ),
+              SizedBox(height: 16),
+              SuggestedActionCard(
+                icon: Icons.settings,
+                title: "Ayarlar",
+                subtitle: "Uygulama ayarlarını özelleştirin",
+                onTap: () => context.push("/settings"),
+              ),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: BottomMenu(),
+    );
+  }
+
+  Widget _buildInfoCard(BuildContext context, {required String title, required String subtitle}) {
+    return Container(
+      margin: EdgeInsets.only(bottom: 16.0),
+      padding: EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.primary,
+        borderRadius: BorderRadius.circular(12.0),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 2,
+            blurRadius: 5,
+            offset: Offset(0, 3), // Gölgenin konumu
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Theme.of(context).colorScheme.onPrimary, // Yazı rengi
+            ),
+          ),
+          SizedBox(height: 8.0),
+          Text(
+            subtitle,
+            style: TextStyle(fontSize: 16, color: Theme.of(context).colorScheme.onPrimary), // Yazı rengi
+          ),
+        ],
+      ),
     );
   }
 }

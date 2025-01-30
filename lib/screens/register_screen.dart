@@ -1,5 +1,6 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
-import 'package:flutter_app/core/themes.dart';
 import 'package:go_router/go_router.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -43,7 +44,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               TextField(
                 obscureText: true,
                 decoration: InputDecoration(
-                  hintText: "Şifre",
+                  hintText: "Sifre",
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -54,7 +55,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               TextField(
                 obscureText: true,
                 decoration: InputDecoration(
-                  hintText: "Şifre Tekrar",
+                  hintText: "Sifre Tekrar",
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -62,48 +63,30 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
               ),
               SizedBox(height: 24),
-              // Kayıt Ol butonu
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primary, // Temanın birincil rengi
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: Theme.of(context).colorScheme.onPrimary, width: 2), // Kenarlık rengi
-                ),
-                child: TextButton(
-                  onPressed: () {
-                    context.go("/loading");
-                  },
-                  child: Text(
-                    "Kayıt Ol",
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.onPrimary, // Temanın "onPrimary" rengi
-                      fontWeight: FontWeight.bold,
-                    ),
+              FilledButton(
+                onPressed: () {
+                  context.go("/");
+                },
+                style: FilledButton.styleFrom(
+                  minimumSize: Size(double.infinity, 50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
                   ),
                 ),
+                child: const Text("Kayit Ol", style: TextStyle(fontSize: 16)),
               ),
               SizedBox(height: 12),
-              // Giriş Yap butonu
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Colors.transparent, // Şeffaf arka plan
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: Theme.of(context).colorScheme.secondary, width: 2), // Kenarlık rengi
-                ),
-                child: TextButton(
-                  onPressed: () {
-                    context.push("/login");
-                  },
-                  child: Text(
-                    "Giriş Yap",
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.onSecondary, // Temanın "onSecondary" rengi
-                      fontWeight: FontWeight.bold,
-                    ),
+              OutlinedButton(
+                onPressed: () {
+                  context.push("/loading");
+                },
+                style: OutlinedButton.styleFrom(
+                  minimumSize: Size(double.infinity, 50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
                   ),
                 ),
+                child: const Text("Giris Yap", style: TextStyle(fontSize: 16)),
               ),
             ],
           ),

@@ -68,6 +68,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
             onTap: () {},
           ),
           const Divider(),
+          // Yeni eklenen özellikler
+          ListTile(
+            leading: Icon(Icons.lock),
+            title: Text('Şifre Değiştir'),
+            trailing: Icon(Icons.arrow_forward_ios, size: 16),
+            onTap: () {
+              //
+            },
+          ),
+          const Divider(),
           ListTile(
             leading: Icon(Icons.delete, color: Colors.red),
             title: Text(
@@ -76,6 +86,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             onTap: () {},
           ),
+          const Divider(),
+          ListTile(
+            leading: Icon(Icons.help),
+            title: Text('Yardım ve Destek'),
+            trailing: Icon(Icons.arrow_forward_ios, size: 16),
+            onTap: () {
+              // Yardım ve destek sayfasına yönlendirme
+            },
+          ),
+          const Divider(),
+          ListTile(
+            leading: Icon(Icons.info_outline),
+            title: Text('Uygulama Sürümü'),
+            subtitle: Text('1.0.0'), // Sürüm numarasını dinamik olarak alabilirsiniz
+          ),
+          const Divider(),
         ],
       ),
     );

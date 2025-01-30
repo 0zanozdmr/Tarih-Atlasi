@@ -32,5 +32,17 @@ flutter:
     - assets/motions/
 
 
-
+flutter_launcher_icons:
+  image_path: "assets/images/logo.png"
+  adaptive_icon_background: "#235586"
+  adaptive_icon_foreground: "assets/images/logo.png"
+  ios: true
+  remove_alpha_ios: true
+  android: true
+  web:
+    generate: true
+  windows:
+    generate: true
+  macos:
+    generate: true
 

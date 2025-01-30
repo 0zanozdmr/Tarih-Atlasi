@@ -51,7 +51,7 @@ class ProfileScreen extends StatelessWidget {
                     subtitle: Text("E-posta"),
                   ),
                   ListTile(
-                    leading: Icon(Icons.email),
+                    leading: Icon(CupertinoIcons.clock_fill),
                     title: Text("Hesabı oluşturulduğu tarih"),
                     subtitle: Text("Tarih"),
                   ),

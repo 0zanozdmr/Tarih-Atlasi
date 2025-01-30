@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/screens/download_screen.dart';
+import 'package:flutter_app/screens/register_screen.dart';
 import 'package:go_router/go_router.dart';
 import '../screens/history_screen.dart';
 import '../screens/loading_screen.dart';
@@ -75,6 +76,13 @@ final router = GoRouter(
       pageBuilder: (context, state) => NoTransitionPage<void>(
         key: state.pageKey,
         child: const HistoryScreen(),
+      ),
+    ),
+    GoRoute(
+      path: '/register',
+      pageBuilder: (context, state) => NoTransitionPage<void>(
+        key: state.pageKey,
+        child: const RegisterScreen(),
       ),
     ),
   ],

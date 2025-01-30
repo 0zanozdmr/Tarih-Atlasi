@@ -32,22 +32,6 @@ class BottomMenu extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              context.go("/voice");
-            },
-            icon: Icon(
-              Icons.android,
-            ),
-          ),
-          IconButton(
-            onPressed: () {
-              context.go("/history");
-            },
-            icon: Icon(
-              Icons.history,
-            ),
-          ),
-          IconButton(
-            onPressed: () {
               context.go("/profile");
             },
             icon: Icon(

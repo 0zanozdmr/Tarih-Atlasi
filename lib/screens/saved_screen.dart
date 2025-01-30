@@ -95,8 +95,8 @@ class _SavedItemsScreenState extends State<SavedItemsScreen> {
                             onPressed: () {
                               // Öğenin detaylarına gitme işlemi
                             },
-                            icon: Icon(CupertinoIcons.arrow_uturn_down, size: 18),
-                            label: Text('Daha fazla bilgi için tıklayınız'),
+                            icon: Icon(CupertinoIcons.link, size: 18),
+                            label: Text('Bağlantıyı kopyalamak için tıklayınız'),
                             style: FilledButton.styleFrom(
                               minimumSize: Size(double.infinity, 36),
                             ),

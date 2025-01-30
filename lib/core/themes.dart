@@ -15,7 +15,7 @@ class ThemeProvider with ChangeNotifier {
 }
 
 const colors = {
-  "yazi": Color.fromARGB(250, 0, 0, 0),
+  "yazi": Color.fromARGB(250, 245, 245, 220),
   "primary": Color.fromARGB(250, 255, 255, 255),
   "onPrimary": Color.fromARGB(250, 139, 69, 19),
   "secondary": Color.fromARGB(255, 130, 94, 0),
@@ -31,8 +31,8 @@ extension CustomColors on ColorScheme {
 }
 
 const darkColors = {
-  "primary": Color.fromARGB(255, 18, 18, 18),
-  "onPrimary": Color.fromARGB(255, 241, 241, 241),
+  "primary": Color.fromARGB(255, 159, 172, 138),
+  "onPrimary": Color.fromARGB(255, 221, 221, 221),
   "secondary": Color.fromARGB(255, 18, 18, 18),
   "onSecondary": Color.fromARGB(255, 241, 241, 241),
   "surface": Color.fromARGB(255, 23, 33, 43),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../core/constants.dart';
 import '../core/themes.dart';
@@ -6,20 +7,26 @@ import '../widgets/bottom_menu.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: colors["primary"],
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
             floating: true,
             snap: true,
+            leading: IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: () {
+                context.go("/home"); // Ana sayfaya dön
+              },
+            ),
             title: TextField(
               decoration: InputDecoration(
                 hintText: "Ara...",
                 filled: true,
-                fillColor: Theme.of(context).colorScheme.surfaceVariant,
+                fillColor: Theme.of(context).colorScheme.primary,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(50),
                   borderSide: BorderSide.none,
@@ -28,7 +35,7 @@ class SearchScreen extends StatelessWidget {
                 suffixIcon: IconButton(
                   icon: Icon(Icons.tune),
                   onPressed: () {
-                    // Filtre dialog
+                    _showFilterDialog(context); // Filtre dialogunu göster
                   },
                 ),
               ),
@@ -90,10 +97,9 @@ class SearchScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       AspectRatio(
-                        aspectRatio: 16 / 9,
+                        aspectRatio: 10 / 9,
                         child: Container(
-                          color:
-                          Theme.of(context).colorScheme.secondaryContainer,
+                          color: Theme.of(context).colorScheme.yazi,
                         ),
                       ),
                       Padding(
@@ -128,4 +134,110 @@ class SearchScreen extends StatelessWidget {
       bottomNavigationBar: BottomMenu(),
     );
   }
+}
+
+void _showFilterDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (context) => AlertDialog(
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text('Filtrele'),
+          IconButton(
+            icon: Icon(Icons.close),
+            onPressed: () => Navigator.pop(context),
+          ),
+        ],
+      ),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Tarih Aralığı',
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          SizedBox(height: 8),
+          Row(
+            children: [
+              Expanded(
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: '-',
+                    border: OutlineInputBorder(),
+                  ),
+                  keyboardType: TextInputType.number,
+                ),
+              ),
+              SizedBox(width: 16),
+              Expanded(
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: '2025',
+                    border: OutlineInputBorder(),
+                  ),
+                  keyboardType: TextInputType.number,
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 16),
+          Text(
+            'Bölgeler',
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          SizedBox(height: 8),
+          Wrap(
+            spacing: 8,
+            children: [
+              FilterChip(
+                label: Text('Avrupa'),
+                selected: true,
+                onSelected: (_) {},
+              ),
+              FilterChip(
+                label: Text('Asya'),
+                selected: false,
+                onSelected: (_) {},
+              ),
+              FilterChip(
+                label: Text('Amerika'),
+                selected: false,
+                onSelected: (_) {},
+              ),
+              FilterChip(
+                label: Text('Afrika'),
+                selected: false,
+                onSelected: (_) {},
+              ),
+            ],
+          ),
+          SizedBox(height: 16),
+          Text(
+            'Arama',
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          SizedBox(height: 8),
+          TextField(
+            decoration: InputDecoration(
+              hintText: 'Detayla aratma',
+              prefixIcon: Icon(Icons.search),
+              border: OutlineInputBorder(),
+            ),
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: Text('Temizle'),
+        ),
+        ElevatedButton(
+          onPressed: () => Navigator.pop(context),
+          child: Text('Uygula'),
+        ),
+      ],
+    ),
+  );
 }
