@@ -49,7 +49,6 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // Logo ekleme
               SizedBox(
                 width: 250,
                 height: 250,
@@ -59,7 +58,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               SizedBox(height: 16),
-              // Ad Soyad TextField
               TextField(
                 controller: adSoyadController,
                 decoration: InputDecoration(
@@ -71,7 +69,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               SizedBox(height: 16),
-              // E-Posta TextField
               TextField(
                 controller: epostaYonetici,
                 decoration: InputDecoration(
@@ -83,7 +80,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               SizedBox(height: 16),
-              // Şifre TextField
               TextField(
                 controller: sifreYonetici,
                 obscureText: true,
@@ -96,7 +92,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               SizedBox(height: 16),
-              // Kayıt Ol butonu
               Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -118,7 +113,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               SizedBox(height: 12),
-              // Giriş Yap butonu
               Container(
                 width: double.infinity,
                 decoration: BoxDecoration(

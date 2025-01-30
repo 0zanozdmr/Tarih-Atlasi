@@ -57,7 +57,6 @@ class LoadingScreen extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            // Yükleniyor yazısı
             const Text(
               'Yükleniyor...',
               style: TextStyle(

@@ -61,7 +61,9 @@ class ProfileScreen extends StatelessWidget {
           ),
           SizedBox(height: 44),
           FilledButton.icon(
-            onPressed: () {},
+            onPressed: () {
+              context.go("/");
+            },
             icon: Icon(Icons.logout),
             label: Text("Hesaptan Çıkış Yap"),
             style: FilledButton.styleFrom(
@@ -86,5 +88,3 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
-
-

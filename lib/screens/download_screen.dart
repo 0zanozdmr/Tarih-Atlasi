@@ -27,18 +27,17 @@ class DownloadScreen extends StatelessWidget {
           children: [
             Expanded(
               child: ListView.builder(
-                itemCount: 10, // İndirilen öğe sayısı
+                itemCount: 10,
                 itemBuilder: (context, index) {
                   return Card(
                     margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                     child: ListTile(
-                      leading: Icon(Icons.file_download), // İndirilen dosya simgesi
-                      title: Text('İndirilen ${index + 1}'), // İndirilen öğe adı
-                      subtitle: Text('Dosya boyutu: ${index * 10 + 5} MB'), // Dosya boyutu
+                      leading: Icon(Icons.file_download),
+                      title: Text('İndirilen ${index + 1}'),
+                      subtitle: Text('Dosya boyutu: ${index * 10 + 5} MB'),
                       trailing: IconButton(
-                        icon: Icon(Icons.delete), // Silme simgesi
+                        icon: Icon(Icons.delete),
                         onPressed: () {
-                          // Silme işlemi
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                               content: Text('İndirilen ${index + 1} silindi.'),

@@ -93,21 +93,18 @@ class HomeScreen extends StatelessWidget {
           child: ListView(
             padding: EdgeInsets.all(24),
             children: [
-              // Bilgi Kartı: Tarihte Bugün Ne Oldu
               _buildInfoCard(
                 context,
                 title: 'Tarihte Bugün Ne Oldu',
                 subtitle: 'Bugün tarihte yaşanan önemli olaylar.',
               ),
 
-              // Bilgi Kartı: En Çok Okunan Makale
               _buildInfoCard(
                 context,
                 title: 'Bugün en çok okunan makale bu oldu',
                 subtitle: 'Makale içeriği.',
               ),
 
-              // Diğer SuggestedActionCard'lar
               SuggestedActionCard(
                 icon: Icons.history,
                 title: "Son Aramalar",
@@ -141,7 +138,7 @@ class HomeScreen extends StatelessWidget {
             color: Colors.grey.withOpacity(0.5),
             spreadRadius: 2,
             blurRadius: 5,
-            offset: Offset(0, 3), // Gölgenin konumu
+            offset: Offset(0, 3),
           ),
         ],
       ),
@@ -153,13 +150,13 @@ class HomeScreen extends StatelessWidget {
             style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
-              color: Theme.of(context).colorScheme.onPrimary, // Yazı rengi
+              color: Theme.of(context).colorScheme.onPrimary,
             ),
           ),
           SizedBox(height: 8.0),
           Text(
             subtitle,
-            style: TextStyle(fontSize: 16, color: Theme.of(context).colorScheme.onPrimary), // Yazı rengi
+            style: TextStyle(fontSize: 16, color: Theme.of(context).colorScheme.onPrimary),
           ),
         ],
       ),

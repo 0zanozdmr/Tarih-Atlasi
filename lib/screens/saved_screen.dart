@@ -43,7 +43,7 @@ class _SavedItemsScreenState extends State<SavedItemsScreen> {
                 mainAxisSpacing: 2,
                 crossAxisSpacing: 2,
               ),
-              itemCount: 10, // Kaydedilen öğe sayısı
+              itemCount: 10,
               itemBuilder: (context, index) => Card(
                 clipBehavior: Clip.antiAlias,
                 child: Column(
@@ -58,7 +58,7 @@ class _SavedItemsScreenState extends State<SavedItemsScreen> {
                                 .colorScheme
                                 .surfaceContainerHighest,
                             child: Image.asset(
-                              "assets/images/dunya.jpg", // Öğe resmi
+                              "assets/images/dunya.jpg",
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -73,7 +73,6 @@ class _SavedItemsScreenState extends State<SavedItemsScreen> {
                               Theme.of(context).colorScheme.surface,
                             ),
                             onPressed: () {
-                              // Favorilere ekleme işlemi
                             },
                           ),
                         ),
@@ -85,7 +84,7 @@ class _SavedItemsScreenState extends State<SavedItemsScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Kaydedilen ${index + 1}', // Kaydedilen öğe adı
+                            'Kaydedilen ${index + 1}',
                             style: Theme.of(context).textTheme.titleMedium,
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
@@ -93,7 +92,6 @@ class _SavedItemsScreenState extends State<SavedItemsScreen> {
                           SizedBox(height: 8),
                           FilledButton.icon(
                             onPressed: () {
-                              // Öğenin detaylarına gitme işlemi
                             },
                             icon: Icon(CupertinoIcons.link, size: 18),
                             label: Text('Bağlantıyı kopyalamak için tıklayınız'),
@@ -111,7 +109,7 @@ class _SavedItemsScreenState extends State<SavedItemsScreen> {
           ),
         ],
       ),
-      bottomNavigationBar: BottomMenu(), // Alt menü
+      bottomNavigationBar: BottomMenu(),
     );
   }
 }
