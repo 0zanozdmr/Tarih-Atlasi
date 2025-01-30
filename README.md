@@ -65,8 +65,9 @@ lib/
 
  ## Ekran Görüntüleri
 ![Screenshot_135](https://github.com/user-attachments/assets/f1aabcb7-c426-47c8-ab6d-a60acc556975)
-![Screenshot_136](https://github.com/user-attachments/assets/95bd2ffb-d344-47f1-84b3-79695f1c264e)
-![Screenshot_137](https://github.com/user-attachments/assets/8c055c63-5c52-4d89-ae79-238b6f8b1177)
+![Screenshot_236](https://github.com/user-attachments/assets/05ff383f-44b4-4f92-9cca-bd09b85b7372)
+![Screenshot_237](https://github.com/user-attachments/assets/c9592e8b-df72-40cd-9ff9-f6dab196954d)
+![Screenshot_238](https://github.com/user-attachments/assets/ccaa94ad-9128-42c8-bbf0-653d8251c53f)
 
 ## Demo Videosu
 
@@ -96,4 +97,5 @@ Lisans
 
  ## Teşekkürler
 -İstinye Üniversitesi'ne destekleri için teşekkür ederiz
+
 
