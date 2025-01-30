@@ -55,9 +55,9 @@ lib/
 
 ├── modeller/ # Veri modelleri
 
-├── ekranlar/ Yükleme ekranı, Ana ekran, Profil ekranı.
+├── ekranlar/ Yükleme ekranı, Ana ekran, Profil ekranı,İndirilenler ekranı,Kaydedilenler ekranı,Aratma ekranı, Giriş ekranı, Hesap oluşturma ekranı.
 
-├── widgets/ # Tekrar kullanılabilir arayüz öğeleri
+├── widgets/ # bottom menü
 
 ├── servisler/ # API servisleri
 
@@ -67,6 +67,10 @@ lib/
 ![Screenshot_135](https://github.com/user-attachments/assets/f1aabcb7-c426-47c8-ab6d-a60acc556975)
 ![Screenshot_136](https://github.com/user-attachments/assets/95bd2ffb-d344-47f1-84b3-79695f1c264e)
 ![Screenshot_137](https://github.com/user-attachments/assets/8c055c63-5c52-4d89-ae79-238b6f8b1177)
+
+## Demo Videosu
+
+!https://github.com/user-attachments/assets/02a4f7c8-2484-4ada-bcf7-184d8e58b7ab
 
 Projeye Katkı Sağlama
 Projeyi forklayın
@@ -84,6 +88,9 @@ Lisans
 
  ## İletişim
 -Proje Bağlantısı: [https://github.com/0zanozdmr/Tarih-Atlasi]
+
+
+
 
 -İstinye Üniversitesi: https://www.istinye.edu.tr/
 
